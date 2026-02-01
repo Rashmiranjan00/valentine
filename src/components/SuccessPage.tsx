@@ -10,7 +10,7 @@ export default function SuccessPage() {
         <p className="text-slate-300">I knew you would say yes!</p>
 
         {/* Video Player - Portrait Mode Optimized */}
-        <div className="relative group mx-auto w-fit rounded-xl border border-white/10 shadow-2xl overflow-hidden bg-black/40">
+        <div className="relative group mx-auto w-fit rounded-3xl border border-white/10 shadow-2xl overflow-hidden bg-black/40">
           <video
             src={valentineVideo}
             autoPlay
@@ -18,7 +18,7 @@ export default function SuccessPage() {
             muted
             controls
             playsInline
-            className="block max-w-[90vw] max-h-[70vh] w-auto h-auto rounded-xl"
+            className="block max-w-[90vw] max-h-[70vh] w-auto h-auto rounded-3xl"
             onError={(e) => {
               // Fallback if video fails to load
               e.currentTarget.style.display = "none";
