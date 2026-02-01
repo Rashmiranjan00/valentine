@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden min-h-screen relative;
+  }
+}
+
+/* Custom floating hearts animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  animation: float 6s linear infinite;
+  color: #f20d46;
+  opacity: 0;
+  z-index: 0;
+}
+
+.delay-1 {
+  animation-delay: 0s;
+  left: 10%;
+  font-size: 20px;
+}
+
+.delay-2 {
+  animation-delay: 2s;
+  left: 20%;
+  font-size: 30px;
+}
+
+.delay-3 {
+  animation-delay: 4s;
+  left: 35%;
+  font-size: 15px;
+}
+
+.delay-4 {
+  animation-delay: 1.5s;
+  left: 50%;
+  font-size: 25px;
+}
+
+.delay-5 {
+  animation-delay: 3s;
+  left: 65%;
+  font-size: 18px;
+}
+
+.delay-6 {
+  animation-delay: 0.5s;
+  left: 80%;
+  font-size: 32px;
+}
+
+.delay-7 {
+  animation-delay: 2.5s;
+  left: 90%;
+  font-size: 22px;
+}
