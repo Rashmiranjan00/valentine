@@ -10,7 +10,7 @@ export default function SuccessPage() {
         <p className="text-slate-300">I knew you would say yes!</p>
 
         {/* Video Player - Portrait Mode Optimized */}
-        <div className="w-full max-w-[320px] md:max-w-[400px] aspect-[9/16] bg-black/40 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group shadow-2xl mx-auto">
+        <div className="w-full max-w-[320px] md:max-w-[400px] aspect-[9/16] max-h-[70vh] bg-black/40 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group shadow-2xl mx-auto">
           <video
             src={valentineVideo}
             autoPlay

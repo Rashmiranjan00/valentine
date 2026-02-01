@@ -47,15 +47,23 @@ export default function ProposalPage({ onYes }: ProposalPageProps) {
       }
       onMouseEnter={moveButton}
       onClick={moveButton}
-      className="group flex w-full sm:w-auto min-w-[140px] h-12 md:h-14 cursor-pointer items-center justify-center gap-2 rounded-full bg-transparent border-2 border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-base font-semibold tracking-wide transition-all duration-300"
+      className={`group flex cursor-pointer items-center justify-center gap-2 rounded-full bg-transparent border-2 border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-semibold tracking-wide transition-all duration-300 ${
+        isMoved
+          ? "w-12 h-12 p-0 text-sm bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md shadow-lg rounded-full"
+          : "flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 text-base px-6 scale-100"
+      }`}
     >
-      <span className="material-symbols-outlined text-[20px] group-hover:hidden">
+      <span
+        className={`material-symbols-outlined ${isMoved ? "text-[24px]" : "text-[20px]"} group-hover:hidden`}
+      >
         close
       </span>
-      <span className="material-symbols-outlined text-[20px] hidden group-hover:block">
+      <span
+        className={`material-symbols-outlined ${isMoved ? "text-[24px]" : "text-[20px]"} hidden group-hover:block`}
+      >
         sentiment_dissatisfied
       </span>
-      <span>No</span>
+      <span className={isMoved ? "hidden" : "block"}>No</span>
     </button>
   );
 
@@ -87,10 +95,10 @@ export default function ProposalPage({ onYes }: ProposalPageProps) {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center mt-2">
+          <div className="flex flex-row gap-4 w-full justify-center items-center mt-2">
             <button
               onClick={onYes}
-              className="flex w-full sm:w-auto min-w-[140px] h-12 md:h-14 cursor-pointer items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-300 text-white text-base font-bold tracking-wide shadow-lg shadow-primary/25"
+              className="flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 cursor-pointer items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-300 text-white text-base font-bold tracking-wide shadow-lg shadow-primary/25"
             >
               <span className="material-symbols-outlined text-[20px]">
                 check
@@ -103,7 +111,7 @@ export default function ProposalPage({ onYes }: ProposalPageProps) {
             {isMoved ? (
               <>
                 {/* Invisible placeholder to keep layout stable */}
-                <div className="min-w-[140px] h-12 md:h-14 opacity-0 pointer-events-none"></div>
+                <div className="flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 opacity-0 pointer-events-none"></div>
                 {createPortal(NoButtonContent, document.body)}
               </>
             ) : (

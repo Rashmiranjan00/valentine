@@ -33,7 +33,7 @@ function App() {
       </div>
 
       {/* Main Container */}
-      <div className="layout-container flex h-screen w-full flex-col relative z-10 overflow-hidden">
+      <div className="layout-container flex min-h-screen w-full flex-col relative z-10">
         {/* Navbar */}
         <div className="w-full flex justify-center py-4 absolute top-0 left-0 z-20">
           <header className="flex items-center justify-between w-full max-w-[960px] px-6 md:px-10">
@@ -60,7 +60,7 @@ function App() {
         </div>
 
         {/* Hero Content */}
-        <main className="flex-1 flex items-center justify-center px-4 md:px-40 py-5">
+        <main className="flex-1 flex flex-col items-center justify-center px-4 md:px-40 py-24 pb-12 w-full">
           {accepted ? (
             <SuccessPage />
           ) : (
