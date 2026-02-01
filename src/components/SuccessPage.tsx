@@ -1,3 +1,5 @@
+import valentineVideo from "../assets/valentine.mp4";
+
 export default function SuccessPage() {
   return (
     <div className="layout-content-container flex flex-col max-w-[800px] flex-1">
@@ -7,15 +9,33 @@ export default function SuccessPage() {
         </h1>
         <p className="text-slate-300">I knew you would say yes!</p>
 
-        {/* Framework for video */}
-        <div className="w-full aspect-video bg-black/40 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <span className="material-symbols-outlined text-6xl text-white/50">
-            play_circle
-          </span>
-          <p className="absolute bottom-4 text-sm text-white/70">
-            Video Asset Placeholder
-          </p>
+        {/* Video Player */}
+        <div className="w-full aspect-video bg-black/40 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group shadow-2xl">
+          <video
+            src={valentineVideo}
+            autoPlay
+            loop
+            muted
+            controls
+            playsInline
+            className="w-full h-full object-cover rounded-xl"
+            onError={(e) => {
+              // Fallback if video fails to load
+              e.currentTarget.style.display = "none";
+              e.currentTarget
+                .parentElement!.querySelector(".placeholder-text")!
+                .classList.remove("hidden");
+            }}
+          />
+          <div className="placeholder-text hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/60">
+            <span className="material-symbols-outlined text-4xl text-white/50 mb-2">
+              videocam_off
+            </span>
+            <p className="text-white/80 font-medium">Video not found</p>
+            <p className="text-white/50 text-xs mt-1">
+              Please add "valentine.mp4" to the public folder
+            </p>
+          </div>
         </div>
       </div>
     </div>
