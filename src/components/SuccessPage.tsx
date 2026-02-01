@@ -10,7 +10,7 @@ export default function SuccessPage() {
         <p className="text-slate-300">I knew you would say yes!</p>
 
         {/* Video Player - Portrait Mode Optimized */}
-        <div className="w-full max-w-[320px] md:max-w-[400px] aspect-[9/16] max-h-[70vh] bg-black/40 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group shadow-2xl mx-auto">
+        <div className="relative group mx-auto w-fit rounded-xl border border-white/10 shadow-2xl overflow-hidden bg-black/40">
           <video
             src={valentineVideo}
             autoPlay
@@ -18,7 +18,7 @@ export default function SuccessPage() {
             muted
             controls
             playsInline
-            className="w-full h-full object-contain rounded-xl"
+            className="block max-w-[90vw] max-h-[70vh] w-auto h-auto rounded-xl"
             onError={(e) => {
               // Fallback if video fails to load
               e.currentTarget.style.display = "none";
@@ -27,13 +27,13 @@ export default function SuccessPage() {
                 .classList.remove("hidden");
             }}
           />
-          <div className="placeholder-text hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/60">
+          <div className="placeholder-text hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/60 min-w-[300px] min-h-[500px]">
             <span className="material-symbols-outlined text-4xl text-white/50 mb-2">
               videocam_off
             </span>
             <p className="text-white/80 font-medium">Video not found</p>
             <p className="text-white/50 text-xs mt-1">
-              Please add "valentine.mp4" to the public folder
+              Please ensure "valentine.mp4" is in assets
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden min-h-screen relative;
+    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-y-auto overflow-x-hidden min-h-screen relative;
   }
 }
 

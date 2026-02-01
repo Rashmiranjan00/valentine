@@ -98,7 +98,9 @@ export default function ProposalPage({ onYes }: ProposalPageProps) {
           <div className="flex flex-row gap-4 w-full justify-center items-center mt-2">
             <button
               onClick={onYes}
-              className="flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 cursor-pointer items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-300 text-white text-base font-bold tracking-wide shadow-lg shadow-primary/25"
+              className={`flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 cursor-pointer items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-300 text-white text-base font-bold tracking-wide shadow-lg shadow-primary/25 ${
+                isMoved ? "w-full sm:w-full" : ""
+              }`}
             >
               <span className="material-symbols-outlined text-[20px]">
                 check
@@ -106,17 +108,11 @@ export default function ProposalPage({ onYes }: ProposalPageProps) {
               <span>YES!</span>
             </button>
 
-            {/* If moved, we render a placeholder here and the actual button in a portal.
+            {/* If moved, we render the actual button in a portal.
                 If not moved, we render the button here. */}
-            {isMoved ? (
-              <>
-                {/* Invisible placeholder to keep layout stable */}
-                <div className="flex-1 sm:flex-none min-w-[120px] h-12 md:h-14 opacity-0 pointer-events-none"></div>
-                {createPortal(NoButtonContent, document.body)}
-              </>
-            ) : (
-              NoButtonContent
-            )}
+            {isMoved
+              ? createPortal(NoButtonContent, document.body)
+              : NoButtonContent}
           </div>
 
           {/* Subtle Hint */}
